@@ -73,7 +73,6 @@ contract RentableNFT is ERC4907, Ownable
         address to,
         uint256 tokenId
     ) public virtual override {
-        require (rentables[tokenId].rentable==false,"Rentable Nft Cant be sell");
         require(_users[tokenId].expires <= block.timestamp,"You cant Sell Rented Nft");
         super.safeTransferFrom(from, to, tokenId);
     }
